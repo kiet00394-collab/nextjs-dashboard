@@ -1,6 +1,6 @@
 import {
   CustomerField,
-  CustomersTableType,
+  FormattedCustomersTable,
   InvoiceForm,
   InvoicesTable,
   Revenue,
@@ -124,7 +124,7 @@ export async function fetchCustomers(): Promise<CustomerField[]> {
     .sort((a, b) => a.name.localeCompare(b.name));
 }
 
-export async function fetchFilteredCustomers(query: string): Promise<CustomersTableType[]> {
+export async function fetchFilteredCustomers(query: string): Promise<FormattedCustomersTable[]> {
   const q = query.toLowerCase();
   return customers
     .filter(
