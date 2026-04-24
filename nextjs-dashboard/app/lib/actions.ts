@@ -81,6 +81,13 @@ export async function authenticate(
   prevState: string | undefined,
   formData: FormData,
 ) {
-  // Simple mock authentication - redirect to dashboard
-  redirect('/dashboard');
+  try {
+    // Simple mock authentication - redirect to dashboard
+    redirect('/dashboard');
+  } catch (error) {
+    if ((error as Error).message === 'NEXT_REDIRECT') {
+      throw error;
+    }
+    return 'Invalid credentials.';
+  }
 }
