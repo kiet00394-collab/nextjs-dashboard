@@ -91,3 +91,7 @@ export async function authenticate(
     return 'Invalid credentials.';
   }
 }
+
+export async function logout() {
+  redirect('/login');
+}
